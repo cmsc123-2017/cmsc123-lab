@@ -15,6 +15,8 @@ public class LinkedList<E> implements Collection<E>{
 	Node head = null;
 	int size = 0;
 
+	//LinkedList() {}
+	
 	//E int -> boolean
 	//accepts an Item and index, then 
 	//adds the item to the given index
@@ -43,9 +45,9 @@ public class LinkedList<E> implements Collection<E>{
 	//int -> boolean
 	//accepts an index of an item, then
 	//removes the item at the given index
-	public boolean remove(int index) {
+	public E remove(int index) {
 		if(this.size == 0) {
-			return false;
+			return null;
 		}
 		
 	
@@ -58,14 +60,11 @@ public class LinkedList<E> implements Collection<E>{
 				currentNode.next = null;
 				
 				this.size--;
-				return true;
 			}
 			
 			lastNode = currentNode;
 			currentNode = currentNode.next;
 		}
-		
-		return false;
 	}
 	
 		// -> int
@@ -80,6 +79,19 @@ public class LinkedList<E> implements Collection<E>{
 			return LinkedListIterator();
 		}
 
+		//helper method for class 'Stack'
+		public E getDataList(int index){
+			Node currentNode = this.head;
+			for(int i = 0; i < index; i++){
+				currentNode = currentNode.next;
+				if(currentNode == null){
+					break;
+				}
+			}
+			E item = currentNode.data;
+			return item;
+		}
+		
 		public void display() {
 			Node currentNode = this.head;
 			
@@ -90,7 +102,5 @@ public class LinkedList<E> implements Collection<E>{
 			}		
 		}
 }
-
-
-
+		
 
