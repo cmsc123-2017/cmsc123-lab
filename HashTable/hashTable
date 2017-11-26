@@ -110,7 +110,7 @@
 		if(temp.key == null) {
 			return false;
 		}
-
+		
 		return true;
 	}
 
